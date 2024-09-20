@@ -1,35 +1,81 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Fruta from "./Fruta.jsx"
+import FrutaCart from './FrutaCart.jsx';
+
+const [carrito, setCarrito] = useState([
+  {
+    "id": 1,
+    "nom": "Plàtan",
+    "preu": 0.5,
+    "cant": 0
+  },
+  {
+    "id": 2,
+    "nom": "Poma",
+    "preu": 0.8,
+    "cant": 0
+  },
+  {
+    "id": 3,
+    "nom": "Pinya",
+    "preu": 5,
+    "cant": 0
+  },
+  {
+    "id": 4,
+    "nom": "Meló",
+    "preu": 6,
+    "cant": 0
+  },
+]);
+
+function Afegir(item){
+  setCarrito(carrito.map(element => {
+    const nowEle ={...element}
+    if(item.id == nowEle.id){
+      nowEle.cant++;
+    }
+    return nowEle;
+  }));
+
+}
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const productes = [
+    {
+      "id": 1,
+      "nom": "Plàtan",
+      "preu": 0.5
+    },
+    {
+      "id": 2,
+      "nom": "Poma",
+      "preu": 0.8
+    },
+    {
+      "id": 3,
+      "nom": "Pinya",
+      "preu": 5
+    },
+    {
+      "id": 4,
+      "nom": "Meló",
+      "preu": 6
+    },
+  ];
 
   return (
     <>
+      <div className="cart">
+        {productes.map(e => <Fruta id={e.id} name={e.nom} price={e.preu} />)}
+      </div>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {carrito.map(e => e.cant*1 > 0 && <FrutaCart name={e.nom} price={e.preu} cant={e.cant}  /> )}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
 
-export default App
+export {App, Afegir};

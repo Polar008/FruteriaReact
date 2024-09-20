@@ -1,0 +1,19 @@
+.fruta{
+    background-color: rgb(2, 193, 2);
+    height: 10vh;
+    width: 30vw;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh;
+}
+.btn {
+    color: burlywood;
+    background-color: beige;
+    text-align: center;
+    padding: 1vh;
+}
+.btn:hover {
+    cursor: pointer;
+}
