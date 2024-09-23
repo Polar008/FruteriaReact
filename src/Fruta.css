@@ -8,6 +8,16 @@
     align-items: center;
     padding: 1vh;
 }
+.fruta2{
+    background-color: rgb(1, 137, 1);
+    height: 10vh;
+    width: 30vw;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh;
+}
 .btn {
     color: burlywood;
     background-color: beige;

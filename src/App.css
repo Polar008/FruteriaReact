@@ -1,3 +1,15 @@
-.cart {
+body{
   background-color: blanchedalmond;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.total {
+  border: solid green 2px;
+  height: 10vh;
+  width: 30vw;
+  line-height: 10vh;
 }
